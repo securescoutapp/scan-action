@@ -1,0 +1,17 @@
+{
+  "name": "securescout-scan-action",
+  "version": "1.0.0",
+  "description": "SecureScout AI Security Scan GitHub Action",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.js -o dist --license licenses.txt",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.0"
+  }
+}

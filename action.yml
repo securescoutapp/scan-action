@@ -1,0 +1,33 @@
+name: 'SecureScout Security Scan'
+description: 'AI-powered security scanning with automatic vulnerability detection and fix suggestions'
+branding:
+  icon: 'shield'
+  color: 'purple'
+
+inputs:
+  api_key:
+    description: 'SecureScout API key (store as GitHub secret)'
+    required: true
+  project_id:
+    description: 'SecureScout project ID to associate scan with'
+    required: true
+  fail_on:
+    description: 'Severity level to fail the build on (critical, high, medium, low)'
+    required: false
+    default: 'critical'
+  api_url:
+    description: 'SecureScout API base URL'
+    required: false
+    default: 'https://api.getsecurescout.com'
+
+outputs:
+  scan_id:
+    description: 'The ID of the completed scan'
+  findings_count:
+    description: 'Total number of findings'
+  critical_count:
+    description: 'Number of critical findings'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
